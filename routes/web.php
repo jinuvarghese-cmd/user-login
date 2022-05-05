@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\MyAccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,6 @@ Route::get('/', function () {
 
 
 Route::post('/checklogin', [MainController::class, 'checklogin']);
+Route::get('/myAccount', [MainController::class, 'myAccount']);
+Route::get('/logout', [MainController::class, 'logout']);
+Route::post('/myAccount/fetchData', [MyAccountController::class, 'fetchData'])->name('myAccount.fetchData');

@@ -22,7 +22,7 @@ class MainController extends Controller
         if(Auth::attempt($user_data))
         {
 
-          return redirect('/successlogin');
+          return redirect('/myAccount');
         }
         else
         {
@@ -30,7 +30,12 @@ class MainController extends Controller
        }
     }
 
-    function successlogin(){
-        return view('successlogin');
+    function myAccount(){
+        return view('myAccount');
+    }
+
+    function logout(){
+        Auth::logout();
+        return redirect('/');
     }
 }
