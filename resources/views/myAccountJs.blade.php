@@ -15,25 +15,10 @@
             method:"post",
             dataType: "json",
             success: function(data) {
-                var html = '';
-                html += '<tr>';
-                html += '<th>User Name</th>';
-                html += '<td>' + data[0].username + '</td>';
-                html += '<tr>';
-                html += '<tr>';
-                html += '<th>First Name</th>';
-                html += '<td>' + data[0].firstname + '</td>';
-                html += '<tr>';
-                html += '<tr>';
-                html += '<th>Last Name</th>';
-                html += '<td>' + data[0].lastname + '</td>';
-                html += '<tr>';
-                html += '<tr>';
-                html += '<th>Email</th>';
-                html += '<td>' + data[0].email + '</td>';
-                html += '<tr>';
-               
-                $('.user-details .table').html(html);
+               $('#username').val(data[0].username);
+               $('#firstname').val(data[0].firstname);
+               $('#lastname').val(data[0].lastname);
+               $('#email').val(data[0].email);
             }
         });
     }

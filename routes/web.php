@@ -22,7 +22,9 @@ Route::get('/', function () {
 
 Route::post('/checklogin', [MainController::class, 'checklogin']);
 Route::get('/myAccount', [MainController::class, 'myAccount']);
-Route::get('/logout', [MainController::class, 'logout']);
+Route::get('/myAccountAddress', [MyAccountController::class, 'myAccountAddress']);
+Route::get('/logout', [MyAccountController::class, 'logout']);
+Route::post('/saveUserDetails', [MyAccountController::class, 'saveUserDetails']);
 Route::post('/myAccount/fetchUserDetails', [MyAccountController::class, 'fetchUserDetails'])->name('myAccount.fetchUserDetails');
 Route::post('/myAccount/fetchAddress', [MyAccountController::class, 'fetchAddress'])->name('myAccount.fetchAddress');
 Route::post('/myAccount/addAddress', [MyAccountController::class, 'addAddress'])->name('myAccount.addAddress');

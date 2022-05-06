@@ -6,9 +6,27 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use  App\Models\Address;
 use  App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class MyAccountController extends Controller
 {
+    function myAccountAddress(){
+        return view('myAccountAddress');
+    }
+
+    function saveUserDetails(Request $request){
+        $this->validate($request, [
+         'email'   => 'required|email',
+        ]);
+
+        $user_data = array(
+         'username'  => $request->get('username'),
+         'firstname'  => $request->get('firstname'),
+         'lastname'  => $request->get('lastname'),
+         'email'  => $request->get('email'),
+        );
+    }
+
     function fetchUserDetails(Request $request){
        if($request->ajax())
         {
@@ -65,5 +83,10 @@ class MyAccountController extends Controller
             
            echo '<div class="alert alert-success">Data Updated</div>';
          }
+    }
+
+    function logout(){
+        Auth::logout();
+        return redirect('/');
     }
 }

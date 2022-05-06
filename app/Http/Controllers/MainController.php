@@ -32,10 +32,5 @@ class MainController extends Controller
 
     function myAccount(){
         return view('myAccount');
-    }
-
-    function logout(){
-        Auth::logout();
-        return redirect('/');
-    }
+    }   
 }
