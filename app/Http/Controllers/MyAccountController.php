@@ -5,9 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use  App\Models\Address;
+use  App\Models\User;
 
 class MyAccountController extends Controller
 {
+    function fetchUserDetails(Request $request){
+       if($request->ajax())
+        {
+          $data = User::getRow($request->user_id);
+          echo json_encode($data);
+        }
+    }
+
     function fetchAddress(Request $request)
     {
         

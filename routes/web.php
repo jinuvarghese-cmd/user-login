@@ -23,6 +23,7 @@ Route::get('/', function () {
 Route::post('/checklogin', [MainController::class, 'checklogin']);
 Route::get('/myAccount', [MainController::class, 'myAccount']);
 Route::get('/logout', [MainController::class, 'logout']);
+Route::post('/myAccount/fetchUserDetails', [MyAccountController::class, 'fetchUserDetails'])->name('myAccount.fetchUserDetails');
 Route::post('/myAccount/fetchAddress', [MyAccountController::class, 'fetchAddress'])->name('myAccount.fetchAddress');
 Route::post('/myAccount/addAddress', [MyAccountController::class, 'addAddress'])->name('myAccount.addAddress');
 Route::post('/myAccount/updateAddress', [MyAccountController::class, 'updateAddress'])->name('myAccount.updateAddress');
