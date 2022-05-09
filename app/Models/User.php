@@ -46,4 +46,8 @@ class User extends Authenticatable
     public static function getRow($user_id){
         return DB::table('users')-> where('id', '=', $user_id)->get();
     }
+
+    public static function updateRow($id, $data){
+        DB::table('users')->where('id', $id)->update($data);
+    }
 }

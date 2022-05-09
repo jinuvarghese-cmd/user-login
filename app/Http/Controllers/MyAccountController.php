@@ -23,8 +23,11 @@ class MyAccountController extends Controller
          'username'  => $request->get('username'),
          'firstname'  => $request->get('firstname'),
          'lastname'  => $request->get('lastname'),
-         'email'  => $request->get('email'),
+         'email'  => $request->get('email')
         );
+
+        User::updateRow($request->get('userid'), $user_data);
+        return redirect('/myAccount')->with('success', 'User Details Updated');
     }
 
     function fetchUserDetails(Request $request){
